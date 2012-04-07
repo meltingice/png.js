@@ -258,7 +258,7 @@
       return decodingMap;
     };
 
-    PNG.prototype.copyToImageData = function(imageData, pixels) {
+    PNG.prototype.copyToImageData = function(pixels) {
       var alpha, byte, colors, data, i, palette, pixel, row, v, _i, _j, _k, _len, _len2, _len3, _ref;
       colors = this.colors;
       palette = null;
@@ -268,7 +268,7 @@
         colors = 4;
         alpha = true;
       }
-      data = imageData.data;
+      data = [];
       i = 0;
       for (_i = 0, _len = pixels.length; _i < _len; _i++) {
         row = pixels[_i];
@@ -290,6 +290,7 @@
           }
         }
       }
+      return data;
     };
 
     return PNG;

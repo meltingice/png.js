@@ -220,7 +220,7 @@ exports.PNG = class PNG
             
         return decodingMap
         
-    copyToImageData: (imageData, pixels) ->
+    copyToImageData: (pixels) ->
         colors = @colors
         palette = null
         alpha = @hasAlphaChannel
@@ -230,7 +230,7 @@ exports.PNG = class PNG
             colors = 4
             alpha = true
         
-        data = imageData.data
+        data = []
         i = 0
         
         for row in pixels
@@ -247,4 +247,4 @@ exports.PNG = class PNG
                     data[i++] = byte for byte in pixel
                     data[i++] = 255 unless alpha
                 
-        return
+        data
